@@ -1,0 +1,18 @@
+<h2>Enter UID</h2>
+<input id="uid">
+<button onclick="login()">Login</button>
+
+<script>
+async function login(){
+ let uid=document.getElementById("uid").value;
+ let res=await fetch("/login",{
+  method:"POST",
+  headers:{ "Content-Type":"application/json" },
+  body:JSON.stringify({uid})
+ });
+
+ let d = await res.json();
+ if(d.access) location.href="/index.html";
+ else alert("Not Approved Yet");
+}
+</script>

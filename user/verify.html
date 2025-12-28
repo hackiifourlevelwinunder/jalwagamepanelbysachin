@@ -1,0 +1,15 @@
+<h2>Submit UID</h2>
+<input id="uid">
+<button onclick="send()">Submit</button>
+
+<script>
+async function send(){
+ let uid=document.getElementById("uid").value;
+ await fetch("/submit",{
+  method:"POST",
+  headers:{ "Content-Type":"application/json" },
+  body:JSON.stringify({uid})
+ });
+ alert("Submitted – Admin Verify Karega");
+}
+</script>
